@@ -1,0 +1,21 @@
+.GuestHeaderComponent {
+  /* Header */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10vw;
+  isolation: isolate;
+  width: 100%;
+  height: 88px;
+  left: 0px;
+  top: 0px;
+  font-size: 12px;
+
+  /* Color/Color 8 */
+
+  background: #ffffff;
+}

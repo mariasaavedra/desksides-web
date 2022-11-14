@@ -1,0 +1,22 @@
+.HeadingComponent {
+  font-family: 'Recoleta';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 6rem;
+  line-height: 6.5rem;
+  /* identical to box height, or 100% */
+
+  /* Color/Color 6 */
+
+  color: #daccff;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.HeadingComponent > p {
+  color: #fff;
+}

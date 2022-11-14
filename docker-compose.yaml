@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    image: desksides-web
+    container_name: desksides-web
+    build: .
+    ports:
+      - 3000:3000
+    # Create mappings between project directory + docker work directory
+    # this allows us to enable live reloading.
+    volumes:
+      - ./:/app

@@ -41,6 +41,21 @@
       U+2215, U+FEFF, U+FFFD;
   }
 
+  @font-face {
+    font-family: 'Recoleta';
+    font-style: normal;
+    font-weight: 100 300 500 700 900;
+    font-display: optional;
+    src: url('/fonts/Recoleta.otf');
+  }
+  @font-face {
+    font-family: 'ProximaNovaRegular';
+    font-style: normal;
+    font-weight: 100 300 500 700 900;
+    font-display: optional;
+    src: url('/fonts/ProximaNovaRegular.woff');
+  }
+
   .cursor-newtab {
     cursor: url('/images/new-tab.png') 10 10, pointer;
   }
