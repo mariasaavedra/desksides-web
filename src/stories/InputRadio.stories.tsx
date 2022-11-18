@@ -1,9 +1,6 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import { ComponentMeta } from '@storybook/react';
 
-import InputRadio, {
-  InputRadioProps,
-} from '../components/InputRadio/InputRadio';
+import InputRadio from '../components/InputRadio/InputRadio';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -20,16 +17,3 @@ export default {
   //     backgroundColor: { control: 'color' },
   // },
 } as ComponentMeta<typeof InputRadio>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof InputRadio> = (args) => (
-  <InputRadio {...args} />
-);
-
-// Name example for the component state it represents i.e. Small for argTypes: {size: small}
-export const Example = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-const exampleProps: InputRadioProps = {
-  // Add props here
-};
-Example.args = exampleProps;

@@ -22,7 +22,7 @@ export default function BrandProfile() {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data: unknown) => {
     console.log('on submit', data);
   };
 

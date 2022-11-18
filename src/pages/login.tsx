@@ -19,7 +19,7 @@ export default function LoginPage() {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data: unknown) => {
     console.log('on submit', data);
   };
 

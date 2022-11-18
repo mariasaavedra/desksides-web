@@ -2,8 +2,6 @@ import React from 'react';
 
 import styles from './InputMultiSelect.module.css';
 
-export interface InputMultiSelectProps {}
-
-export default function InputMultiSelect(props: InputMultiSelectProps) {
+export default function InputMultiSelect() {
   return <div className={styles.InputMultiSelectComponent}></div>;
 }

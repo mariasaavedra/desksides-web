@@ -43,17 +43,18 @@
 
   @font-face {
     font-family: 'Recoleta';
+    src: url('/fonts/Recoleta-Regular.woff2') format('woff2'),
+      url('/fonts/Recoleta-Regular.woff2') format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-weight: 100 300 500 700 900;
-    font-display: optional;
-    src: url('/fonts/Recoleta.otf');
   }
+
   @font-face {
     font-family: 'ProximaNovaRegular';
     font-style: normal;
-    font-weight: 100 300 500 700 900;
+    font-weight: 100 300 400 500 700 900;
     font-display: optional;
-    src: url('/fonts/ProximaNovaRegular.woff');
+    src: url('/fonts/ProximaNovaRegular.woff') format('woff2');
   }
 
   .cursor-newtab {
