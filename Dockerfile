@@ -4,4 +4,4 @@ EXPOSE 3000
 
 WORKDIR /app
 
-CMD yarn install && yarn client
+CMD yarn install && yarn start
