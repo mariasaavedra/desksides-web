@@ -1,6 +1,5 @@
 .ContentComponent {
   min-height: 30vh;
   display: flex;
-  justify-content: center;
   padding: 2rem;
 }

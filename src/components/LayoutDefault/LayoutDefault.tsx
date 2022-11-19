@@ -11,7 +11,8 @@ import { MaybeParentComponentProps } from '@/interfaces/ParentComponentProps';
 
 export interface LayoutDefaultProps extends MaybeParentComponentProps {
   heroJSX?: string | JSX.Element,
-  hideHero?: boolean
+  hideHero?: boolean,
+  justify: 'center' | 'left' | 'right'
 }
 
 export default function LayoutDefault(props: LayoutDefaultProps) {
@@ -19,8 +20,12 @@ export default function LayoutDefault(props: LayoutDefaultProps) {
     <div className={styles.LayoutDefaultComponent}>
       <Header></Header>
       {!props.hideHero && <Hero>{props.heroJSX}</Hero>}
-      <Content>{props.children}</Content>
+      <Content justify={props.justify}>{props.children}</Content>
       <Footer></Footer>
     </div>
   );
+}
+
+LayoutDefault.defaultProps = {
+  justify: 'center'
 }

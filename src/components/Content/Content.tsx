@@ -4,6 +4,14 @@ import styles from './Content.module.css';
 
 import { ParentComponentProps } from '@/interfaces/ParentComponentProps';
 
-export default function Content(props: ParentComponentProps) {
-  return <div className={styles.ContentComponent}>{props.children}</div>;
+interface ContentProps extends ParentComponentProps {
+  justify: 'center' | 'left' | 'right'
+}
+
+export default function Content(props: ContentProps) {
+  return <div className={styles.ContentComponent + ` justify-${props.justify}`}>{props.children}</div>;
+}
+
+Content.defaultProps = {
+  justify: 'center'
 }

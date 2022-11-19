@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Button from '@/components/Button/Button';
+import AssesmentForm from '@/components/AssesmentForm/AssesmentForm';
 import Heading from '@/components/Heading/Heading';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
@@ -13,8 +13,8 @@ export default function AdminProfile() {
 
   return (
     <>
-      <LayoutDefault heroJSX={heroJSX}>
-        <Button>sadasd</Button>
+      <LayoutDefault justify='left' heroJSX={heroJSX}>
+        <AssesmentForm></AssesmentForm>
       </LayoutDefault>
     </>
   );

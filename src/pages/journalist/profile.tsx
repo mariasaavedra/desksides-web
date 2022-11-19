@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import AssesmentForm from '@/components/AssesmentForm/AssesmentForm';
 import Heading from '@/components/Heading/Heading';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
@@ -16,8 +17,8 @@ export default function JournalistProfile() {
 
   return (
     <>
-      <LayoutDefault heroJSX={heroJSX}>
-
+      <LayoutDefault justify='left' heroJSX={heroJSX}>
+        <AssesmentForm></AssesmentForm>
       </LayoutDefault>
     </>
   );
