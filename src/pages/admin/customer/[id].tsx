@@ -10,30 +10,30 @@ export default function CustomerDetail() {
 
   return (
     <LayoutDefault hideHero={true}>
-      <div className="container flex justify-center columns-2 max-w-5xl">
+      <div className="container gap-10 flex justify-center columns-2 max-w-5xl">
         {/* First Column */}
-        <div className='w-1/2'>
+        <div className='w-1/2 p-4'>
           <p className="text-3xl font-heading">Journalist Profile</p>
-          <div className="badge bg-brand-yellow p-4 rounded-lg w-full border border-black">
+          <div className="badge bg-brand-yellow p-4 rounded-md w-full border border-black">
             <p>Benjamin Smith</p>
           </div>
         </div>
 
         {/* Second Column */}
-        <div className='w-1/2'>
-          <div>
+        <div className='w-1/2 p-4'>
+          <div className='mb-10'>
             <p className="text-xl font-heading">Approve user?</p>
-            <Button color='purple' size='sm' variant='outline'>Approve</Button>
+            <Button color='green' size='sm' variant='outline'>Approve</Button>
           </div>
-          <div>
-            <p className="text-xl font-heading">Select New Match(es)</p>
+          <div className='mb-10'>
+            <p className="text-xl font-heading">Select New Matches</p>
             <textarea></textarea>
-            <Button size='sm' color='red' variant='outline'>Submit Match(es)</Button>
+            <Button size='sm' color='green' variant='outline'>Submit Matches</Button>
           </div>
-          <div>
-            <p className="text-xl font-heading">Delete Existing Match(es)</p>
+          <div className='mb-10'>
+            <p className="text-xl font-heading">Delete Existing Matches</p>
             <textarea></textarea>
-            <Button size='sm' variant='outline'>Remove Match(es)</Button>
+            <Button size='sm' color='green' variant='outline'>Remove Matches</Button>
           </div>
         </div>
       </div>

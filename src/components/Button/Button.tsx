@@ -7,7 +7,7 @@ import { ParentComponentProps } from '@/interfaces/ParentComponentProps';
 export interface ButtonProps extends ParentComponentProps {
   id?: string,
   type: 'button' | 'submit',
-  color: string;
+  color: 'green' | 'red' | 'yellow' | 'purple';
   variant: 'outline' | 'solid',
   size: 'sm' | 'md' | 'lg'
   url?: string,
@@ -19,7 +19,7 @@ export default function Button(props: ButtonProps) {
   const getClasses = () => {
     const classes = [];
     if (props.variant === 'solid') {
-      classes.push(`bg-brand-${props.color}`);
+      classes.push(`text-white underline bg-brand-${props.color}`);
     }
     if (props.variant == 'outline') {
       if (props.color === 'red') {
@@ -28,10 +28,13 @@ export default function Button(props: ButtonProps) {
       if (props.color === 'yellow') {
         classes.push(`text-brand-yellow border-brand-yellow`);
       }
+      if (props.color === 'green') {
+        classes.push(`text-brand-green border-brand-green`);
+      }
       if (props.color === 'purple') {
         classes.push(`text-brand-purple border-brand-purple`);
       }
-      classes.push(`border border-2 rounded-[28px]`);
+      classes.push(`border border-1 text-xs rounded-[28px] tracking-wide uppercase`);
     }
     if (props.size === 'sm') {
       classes.push(`p-2 px-4`);
@@ -46,8 +49,11 @@ export default function Button(props: ButtonProps) {
   }
 
   return (
-    <button id={props.id} type={props.type} className={styles.ButtonComponent + ' ' + getClasses()
-    }>
+    <button
+      id={props.id}
+      type={props.type}
+      className={styles.ButtonComponent + ' ' + getClasses()
+      }>
       {props.children}
     </button >
   );
