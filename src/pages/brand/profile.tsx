@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
 
+import { Form, Input } from '@/components/Form/Form';
 import Heading from '@/components/Heading/Heading';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
@@ -28,15 +28,20 @@ export default function BrandProfile() {
     </>
   );
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
   const onSubmit = data => console.log(data);
 
 
   return (
     <>
       <LayoutDefault heroJSX={heroJSX}>
+        <Form onSubmit={onSubmit}>
+          <Input name="firstName" />
+          <Input name="lastName" />
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+          <Input type="submit" value="Submit" />
+        </Form>
+        {/* <form onSubmit={handleSubmit(onSubmit)}>
           <div className='block'>
             <label>What area of the market does your brand sit in ?</label>
             <input
@@ -45,7 +50,7 @@ export default function BrandProfile() {
               {...register('affliate_url')}
             />
           </div>
-          `
+`
           <div className='block'>
             <label>
               What time of day would you prefer to take your DeskSide meetings?
@@ -79,7 +84,7 @@ export default function BrandProfile() {
           <div className='block'></div>
 
           <input className='block' type='submit' />
-        </form>
+        </form> */}
       </LayoutDefault>
     </>
   );

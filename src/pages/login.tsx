@@ -39,7 +39,7 @@ export default function LoginPage() {
               {...register('password', {})}
             />
           </div>
-          <Button></Button>
+          <Button type='submit'>Submit</Button>
         </form>
       </LayoutDefault>
     </>
