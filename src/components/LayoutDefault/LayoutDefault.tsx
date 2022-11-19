@@ -10,14 +10,15 @@ import Hero from '@/components/Hero/Hero';
 import { MaybeParentComponentProps } from '@/interfaces/ParentComponentProps';
 
 export interface LayoutDefaultProps extends MaybeParentComponentProps {
-  heroJSX: string | JSX.Element;
+  heroJSX?: string | JSX.Element,
+  hideHero?: boolean
 }
 
 export default function LayoutDefault(props: LayoutDefaultProps) {
   return (
     <div className={styles.LayoutDefaultComponent}>
       <Header></Header>
-      <Hero>{props.heroJSX}</Hero>
+      {!props.hideHero && <Hero>{props.heroJSX}</Hero>}
       <Content>{props.children}</Content>
       <Footer></Footer>
     </div>
