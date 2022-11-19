@@ -1,1 +1,3 @@
-/* eslint-disable */ .AssesmentFormComponent { }
+.AssesmentFormComponent {
+  padding: 2rem;
+}

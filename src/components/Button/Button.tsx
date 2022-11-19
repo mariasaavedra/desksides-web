@@ -19,7 +19,7 @@ export default function Button(props: ButtonProps) {
   const getClasses = () => {
     const classes = [];
     if (props.variant === 'solid') {
-      classes.push(`text-white underline bg-brand-${props.color}`);
+      classes.push(`text-white underline bg-brand-${props.color} bolder font-lg font-heading`);
     }
     if (props.variant == 'outline') {
       if (props.color === 'red') {
