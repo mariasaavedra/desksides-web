@@ -6,11 +6,23 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontSize: {
+        xs: '16px',
+        sm: '18px',
+        md: '24px',
+      },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
         heading: ['Recoleta', ...fontFamily.sans],
       },
       colors: {
+        'brand-red': '#DC4634',
+        'brand-light-purple': '#DACCFF',
+        'brand-purple': '#352558',
+        'brand-green': '#546D1D',
+        'brand-yellow': '#FFAA45',
+        'brand-cream': '#F6F3E3',
+        'brand-charcoal': '#232323',
         primary: {
           // Customize it on globals.css :root
           50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
