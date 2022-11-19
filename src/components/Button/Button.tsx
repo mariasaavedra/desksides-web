@@ -9,9 +9,18 @@ export interface ButtonProps extends ParentComponentProps {
   color: 'yellow' | 'red' | 'purple',
   variant: 'outline' | 'solid',
   onClick?: () => void,
-
 }
 
 export default function Button(props: ButtonProps) {
-  return <div className={styles.ButtonComponent}>{ }</div>;
+  return (
+    <div className={styles.ButtonComponent}>
+      {props.children}
+    </div>
+  );
+}
+
+Button.defaultProps = {
+  variant: 'solid',
+  type: 'button',
+  color: 'red',
 }
