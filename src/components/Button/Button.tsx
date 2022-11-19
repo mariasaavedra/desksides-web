@@ -1,6 +1,17 @@
 import React from 'react';
 
 import styles from './Button.module.css';
-export default function Button() {
-  return <div className={styles.ButtonComponent}>Submit</div>;
+
+import { ParentComponentProps } from '@/interfaces/ParentComponentProps';
+
+export interface ButtonProps extends ParentComponentProps {
+  type: 'button' | 'submit',
+  color: 'yellow' | 'red' | 'purple',
+  variant: 'outline' | 'solid',
+  onClick?: () => void,
+
+}
+
+export default function Button(props: ButtonProps) {
+  return <div className={styles.ButtonComponent}>{ }</div>;
 }
