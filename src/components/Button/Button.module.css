@@ -6,22 +6,14 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 0px 44px;
   gap: 10px;
   cursor: pointer;
-
-  width: max-content;
-  height: 56px;
-  color: #fff;
-
+  width: fit-content;
+  min-width: 100px;
   /* Color/Color 5 */
-
-  background: #dc4634;
+  /* background: #dc4634; */
   border-radius: 28px;
-
   /* Inside auto layout */
-
   flex: none;
   order: 0;
   flex-grow: 0;

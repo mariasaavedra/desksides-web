@@ -14,7 +14,7 @@ export default function AdminProfile() {
   return (
     <>
       <LayoutDefault heroJSX={heroJSX}>
-        <Button></Button>
+        <Button>sadasd</Button>
       </LayoutDefault>
     </>
   );

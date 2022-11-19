@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import Button from '@/components/Button/Button';
 import Heading from '@/components/Heading/Heading';
 import InputTextArea from '@/components/InputTextArea/InputTextArea';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
@@ -16,7 +15,7 @@ export default function ContactPage() {
     <>
       <LayoutDefault heroJSX={heroJSX}>
         <InputTextArea></InputTextArea>
-        <Button></Button>
+        {/* <Button></Button> */}
       </LayoutDefault>
     </>
   );

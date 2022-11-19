@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { Form, Input } from '@/components/Form/Form';
 import Heading from '@/components/Heading/Heading';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
@@ -29,18 +28,18 @@ export default function BrandProfile() {
   );
 
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
 
 
   return (
     <>
       <LayoutDefault heroJSX={heroJSX}>
-        <Form onSubmit={onSubmit}>
+        {/* <Form onSubmit={onSubmit}>
           <Input name="firstName" />
           <Input name="lastName" />
 
           <Input type="submit" value="Submit" />
-        </Form>
+        </Form> */}
         {/* <form onSubmit={handleSubmit(onSubmit)}>
           <div className='block'>
             <label>What area of the market does your brand sit in ?</label>

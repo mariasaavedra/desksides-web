@@ -21,7 +21,7 @@ export default function ResetPassword() {
 
   const [checkEmail, setCheckEmail] = useState(false);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
 
   return (
     <>
