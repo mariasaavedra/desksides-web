@@ -1,0 +1,18 @@
+trigger:
+  - dev
+
+pool:
+  vmImage: 'ubuntu-22.04'
+
+variables:
+  azureServiceConnection: 'dev'
+  webAppName: 'SuperbUiDev'
+  keyVaultName: 'SuperbKeyVaultDevRed'
+  apiBaseUrl: 'https://superbapidev.azurewebsites.net'
+  reportEmailTos: 'jesse@advadigitalsolutions.com'
+  faqContactEmail: 'sheerish.uware@gmail.com'
+  facilityConfirmationEmail: 'sheerish.uware@gmail.com'
+
+steps:
+  - template: ./build.yaml
+  - template: ./deploy.yaml

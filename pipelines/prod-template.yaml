@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    exclude:
+      - '*'
+
+pool:
+  vmImage: 'ubuntu-22.04'
+
+variables:
+  azureServiceConnection: 'prod'
+  webAppName: 'SuperbUi'
+  keyVaultName: 'SuperbKeyVaultBlue'
+  apiBaseUrl: 'https://superbapi.azurewebsites.net'
+  reportEmailTos: 'molly@superbshifts.com,john.buckley@superbshifts.com'
+  faqContactEmail: 'info@superbshifts.com'
+
+steps:
+  - template: ./build.yaml
+  - template: ./deploy.yaml

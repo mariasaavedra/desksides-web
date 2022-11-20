@@ -1,0 +1,61 @@
+steps:
+  - task: CopyFiles@2
+    displayName: "Copy package.json to dist"
+    inputs:
+      SourceFolder: "$(System.DefaultWorkingDirectory)"
+      Contents: "package.json"
+      TargetFolder: "$(System.DefaultWorkingDirectory)/dist"
+
+  - task: CopyFiles@2
+    displayName: "Copy yarn.lock to dist"
+    inputs:
+      SourceFolder: "$(System.DefaultWorkingDirectory)"
+      Contents: "yarn.lock"
+      TargetFolder: "$(System.DefaultWorkingDirectory)/dist"
+
+  - task: CopyFiles@2
+    displayName: "Copy config files to dist"
+    inputs:
+      SourceFolder: "$(System.DefaultWorkingDirectory)"
+      Contents: "*.config.js"
+      TargetFolder: "$(System.DefaultWorkingDirectory)/dist"
+
+  - task: CopyFiles@2
+    displayName: "Copy next files to dist"
+    inputs:
+      SourceFolder: "$(System.DefaultWorkingDirectory)/.next/standalone"
+      Contents: "**"
+      TargetFolder: "$(System.DefaultWorkingDirectory)/dist"
+
+  - task: CopyFiles@2
+    displayName: "Copy next files to dist"
+    inputs:
+      SourceFolder: "$(System.DefaultWorkingDirectory)/.next/static"
+      Contents: "**"
+      TargetFolder: "$(System.DefaultWorkingDirectory)/dist/.next/static"
+
+  - task: CopyFiles@2
+    displayName: "Copy public files to dist"
+    inputs:
+      SourceFolder: "$(System.DefaultWorkingDirectory)/public"
+      Contents: "**"
+      TargetFolder: "$(System.DefaultWorkingDirectory)/dist/public"
+
+  - task: AzureRmWebAppDeployment@4
+    displayName: "Deploy app"
+    inputs:
+      ConnectionType: "AzureRM"
+      azureSubscription: "$(azureServiceConnection)"
+      appType: "webAppLinux"
+      WebAppName: "$(webAppName)"
+      packageForLinux: "$(System.DefaultWorkingDirectory)/dist"
+      runtimeStack: "NODE|16-lts"
+      StartupCommand: "yarn install --production=true --network-timeout 3600000 && node server.js"
+      AppSettings: "-AUTH0_BASE_URL @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-base-url)
+      -AUTH0_CLIENT_ID @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-client-id)
+      -AUTH0_ISSUER_BASE_URL @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-issuer-base-url)
+      -WEBSITES_CONTAINER_START_TIME_LIMIT 1800
+      -AUTH0_CLIENT_SECRET @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-client-secret)
+      -AUTH0_SECRET @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-secret)
+      -APPLICATIONINSIGHTS_CONNECTION_STRING @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=applicationinsights-connection-string)
+      -ApplicationInsightsAgent_EXTENSION_VERSION ~3"

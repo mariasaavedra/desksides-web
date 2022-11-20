@@ -1,0 +1,18 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-22.04'
+
+variables:
+  azureServiceConnection: 'qa'
+  webAppName: 'SuperbUiQa'
+  keyVaultName: 'SuperbKeyVaultQaRed'
+  apiBaseUrl: 'https://superbapiqa.azurewebsites.net'
+  reportEmailTos: 'sheerish.uware@gmail.com'
+  faqContactEmail: 'sheerish.uware@gmail.com'
+  facilityConfirmationEmail: 'sheerish.uware@gmail.com'
+
+steps:
+  - template: ./build.yaml
+  - template: ./deploy.yaml
