@@ -51,11 +51,6 @@ steps:
       packageForLinux: "$(System.DefaultWorkingDirectory)/dist"
       runtimeStack: "NODE|16-lts"
       StartupCommand: "yarn install --production=true --network-timeout 3600000 && node server.js"
-      AppSettings: "-AUTH0_BASE_URL @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-base-url)
-      -AUTH0_CLIENT_ID @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-client-id)
-      -AUTH0_ISSUER_BASE_URL @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-issuer-base-url)
-      -WEBSITES_CONTAINER_START_TIME_LIMIT 1800
-      -AUTH0_CLIENT_SECRET @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-client-secret)
-      -AUTH0_SECRET @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=auth0-secret)
+      AppSettings: "-WEBSITES_CONTAINER_START_TIME_LIMIT 1800
       -APPLICATIONINSIGHTS_CONNECTION_STRING @Microsoft.KeyVault(VaultName=$(keyVaultName);SecretName=applicationinsights-connection-string)
       -ApplicationInsightsAgent_EXTENSION_VERSION ~3"

@@ -11,6 +11,3 @@ steps:
     displayName: 'Yarn Build'
     env:
       NEXT_PUBLIC_API_BASE_URL: '$(apiBaseUrl)'
-      NEXT_PUBLIC_REPORT_EMAIL_TOS: '$(reportEmailTos)'
-      NEXT_PUBLIC_FAQ_CONTACT_EMAIL: '$(faqContactEmail)'
-      NEXT_PUBLIC_FACILITY_CONFIRMATION_EMAIL: '$(facilityConfirmationEmail)'

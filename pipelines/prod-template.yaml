@@ -11,8 +11,6 @@ variables:
   webAppName: 'SuperbUi'
   keyVaultName: 'SuperbKeyVaultBlue'
   apiBaseUrl: 'https://superbapi.azurewebsites.net'
-  reportEmailTos: 'molly@superbshifts.com,john.buckley@superbshifts.com'
-  faqContactEmail: 'info@superbshifts.com'
 
 steps:
   - template: ./build.yaml

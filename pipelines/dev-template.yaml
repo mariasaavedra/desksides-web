@@ -9,9 +9,6 @@ variables:
   webAppName: 'SuperbUiDev'
   keyVaultName: 'SuperbKeyVaultDevRed'
   apiBaseUrl: 'https://superbapidev.azurewebsites.net'
-  reportEmailTos: 'jesse@advadigitalsolutions.com'
-  faqContactEmail: 'sheerish.uware@gmail.com'
-  facilityConfirmationEmail: 'sheerish.uware@gmail.com'
 
 steps:
   - template: ./build.yaml
