@@ -17,7 +17,7 @@ export default function CustomerDetail() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      if (!user) {
+      if (!user || !id) {
         return;
       }
       const response = await fetch(`http://localhost:3333/users/${id}`, {
@@ -39,13 +39,17 @@ export default function CustomerDetail() {
           <div className="badge bg-brand-yellow p-4 rounded-md w-full border border-black">
             <p>{data?.first_name + ' ' + data?.last_name}</p>
           </div>
+          <pre>{JSON.stringify(data?.Profile)}</pre>
         </div>
 
         {/* Second Column */}
         <div className='w-1/2 p-4'>
           <div className='mb-10'>
-            <p className="text-xl font-heading">Approve user?</p>
-            <Button color='green' size='sm' variant='outline'>Approve</Button>
+            {!data?.is_approved && (<>
+              <p className="text-xl font-heading">Approve user?</p>
+              <Button color='green' size='sm' variant='outline'>Approve</Button>
+            </>)}
+
           </div>
           <div className='mb-10'>
             <p className="text-xl font-heading">Select New Matches</p>

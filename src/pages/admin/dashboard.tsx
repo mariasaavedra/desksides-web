@@ -43,13 +43,14 @@ export default function AdminIndex() {
       dataIndex: 'role',
       key: 'role',
       width: 50,
+      render: (value) => value
     },
     {
       title: 'Date Joined',
       dataIndex: 'created_at',
       key: 'created_at',
       width: 150,
-      render: () => getFormattedDate(user.created_at)
+      render: (value) => getFormattedDate(value)
     },
     {
       title: 'Market',
@@ -62,15 +63,15 @@ export default function AdminIndex() {
       dataIndex: 'is_approved',
       key: 'is_approved',
       width: 50,
-      render: () => {
-        return (<>{user.is_approved ? <>X</> : <>-</>} </>)
+      render: (value) => {
+        return (<>{value ? <>X</> : <>-</>} </>)
       }
     },
     {
       title: 'Detail',
       dataIndex: '',
       key: 'operations',
-      render: () => <Link href={`/admin/user/${user.id}`}>Detail</Link>,
+      render: (value: { id: any; }, row: any, index: any) => <Link href={`/admin/user/${value.id}`}>Detail</Link>,
     },
   ];
   const [data, setData] = useState([]);
