@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 import { useAuthContext } from './useAuthContext';
@@ -6,6 +7,7 @@ export const useLogin = () => {
   const [error, setError] = useState<object>();
   const [isLoading, setIsLoading] = useState<boolean>();
   const { dispatch } = useAuthContext();
+  const router = useRouter();
 
   const login = async (email, password) => {
     setIsLoading(true);
@@ -31,6 +33,20 @@ export const useLogin = () => {
 
       // update loading state
       setIsLoading(false);
+
+      switch (json.role) {
+        case 'ADMIN':
+          router.push('admin/dashboard');
+          break;
+        case 'JOURNALIST':
+          router.push('brand/dashboard');
+          break;
+        case 'BRAND':
+          router.push('dashboard');
+          break;
+        default:
+          console.log(`Sorry, an error occued`);
+      }
     }
   };
 

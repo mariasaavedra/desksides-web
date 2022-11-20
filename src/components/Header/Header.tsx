@@ -3,9 +3,12 @@ import React from 'react';
 
 import styles from './Header.module.css';
 
+import { useAuthContext } from '@/hooks/useAuthContext';
+
 import NextImage from '@/components/NextImage';
 
 export default function Header() {
+  const { user } = useAuthContext()
   return (
     <div className={styles.HeaderComponent}>
       <Link href='/'>
@@ -17,8 +20,7 @@ export default function Header() {
           height='180'
           alt='Icon'
         /></Link>
-
-      <nav></nav>
+      <p>{user.first_name}</p>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { createContext, useEffect, useReducer } from 'react'
 
-export const AuthContext = createContext(null)
+
+export const AuthContext: Partial<IUser> = createContext({})
 
 export const authReducer = (state, action) => {
   switch (action.type) {
