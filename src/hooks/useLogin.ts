@@ -34,6 +34,10 @@ export const useLogin = () => {
       // update loading state
       setIsLoading(false);
 
+      // is approved?
+
+      // is verfied?
+
       switch (json.role) {
         case 'ADMIN':
           router.push('admin/dashboard');

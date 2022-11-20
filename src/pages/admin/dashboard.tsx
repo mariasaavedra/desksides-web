@@ -7,7 +7,9 @@ import { useAuthContext } from '@/hooks/useAuthContext';
 
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
-
+const getFormattedDate = (date: Date) => {
+  return new Date(date).getMonth() + '/' + new Date(date).getDay() + '/' + new Date(date).getFullYear()
+}
 
 export default function AdminIndex() {
   const { user } = useAuthContext();
@@ -47,6 +49,7 @@ export default function AdminIndex() {
       dataIndex: 'created_at',
       key: 'created_at',
       width: 150,
+      render: () => getFormattedDate(user.created_at)
     },
     {
       title: 'Market',
@@ -59,6 +62,9 @@ export default function AdminIndex() {
       dataIndex: 'is_approved',
       key: 'is_approved',
       width: 50,
+      render: () => {
+        return (<>{user.is_approved ? <>X</> : <>-</>} </>)
+      }
     },
     {
       title: 'Detail',

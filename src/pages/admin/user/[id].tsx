@@ -1,12 +1,34 @@
 import { useRouter } from 'next/router'
 import * as React from 'react';
+import { useEffect, useState } from 'react';
+
+import { useAuthContext } from '@/hooks/useAuthContext';
 
 import Button from '@/components/Button/Button';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
+import { IUser } from '@/interfaces/User';
+
 export default function CustomerDetail() {
   const router = useRouter()
-  const { id } = router.query
+  const { id } = router.query;
+  const { user } = useAuthContext();
+  const [data, setData] = useState<IUser>();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (!user) {
+        return;
+      }
+      const response = await fetch(`http://localhost:3333/users/${id}`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${user.access_token}` },
+      });
+      setData(await response.json());
+    }
+    fetchUser();
+  }, [user, id])
+
 
   return (
     <LayoutDefault hideHero={true}>
@@ -15,7 +37,7 @@ export default function CustomerDetail() {
         <div className='w-1/2 p-4'>
           <p className="text-3xl font-heading">Journalist Profile</p>
           <div className="badge bg-brand-yellow p-4 rounded-md w-full border border-black">
-            <p>Benjamin Smith</p>
+            <p>{data?.first_name + ' ' + data?.last_name}</p>
           </div>
         </div>
 
