@@ -39,7 +39,9 @@ export default function CustomerDetail() {
           <div className={`badge p-4 rounded-md w-full border border-black ${data?.role == 'BRAND' ? 'bg-brand-yellow' : 'bg-brand-light-purple'}`}>
             <p>{data?.first_name + ' ' + data?.last_name}</p>
           </div>
-          <pre>{JSON.stringify(data?.Profile)}</pre>
+          {data?.Profile && <>
+            <pre>{JSON.stringify(data?.Profile)}</pre>
+          </>}
         </div>
 
         {/* Second Column */}

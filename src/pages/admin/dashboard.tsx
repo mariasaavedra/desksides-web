@@ -36,14 +36,14 @@ export default function AdminIndex() {
       title: 'State',
       dataIndex: 'state',
       key: 'state',
-      width: 50,
+      width: 100,
     },
     {
       title: 'Role',
       dataIndex: 'role',
       key: 'role',
-      width: 50,
-      render: (value) => value
+      width: 100,
+      render: (value: string) => <span className='capitalize'>{value.toLowerCase()}</span>
     },
     {
       title: 'Date Joined',
@@ -64,7 +64,10 @@ export default function AdminIndex() {
       key: 'is_approved',
       width: 50,
       render: (value) => {
-        return (<>{value ? <>X</> : <>-</>} </>)
+        return (<>{value ? <><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+        </> : <>-</>} </>)
       }
     },
     {
