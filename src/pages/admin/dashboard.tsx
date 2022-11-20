@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Table from 'rc-table';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
@@ -63,7 +64,7 @@ export default function AdminIndex() {
       title: 'Detail',
       dataIndex: '',
       key: 'operations',
-      render: () => <a href="#">Detail</a>,
+      render: () => <Link href={`/admin/user/${user.id}`}>Detail</Link>,
     },
   ];
   const [data, setData] = useState([]);
