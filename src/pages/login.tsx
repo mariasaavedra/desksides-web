@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 
+import { useLogin } from '@/hooks/useLogin';
+
 import Button from '@/components/Button/Button';
 import Heading from '@/components/Heading/Heading';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
@@ -18,17 +20,11 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async ({ email, password }) => {
-    const response = await fetch(`http://localhost:3333/auth/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    });
-    const jwt = await response.json();
-    console.log(await jwt);
-    localStorage.setItem('access_token', await jwt.access_token)
+
+  const { login, error, isLoading } = useLogin()
+
+  const onSubmit = async ({ email, password }: { email: string, password: string }) => {
+    await login(email, password);
   };
 
   return (

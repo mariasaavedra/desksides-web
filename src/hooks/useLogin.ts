@@ -9,7 +9,7 @@ export const useLogin = () => {
 
   const login = async (email, password) => {
     setIsLoading(true);
-    setError(null);
+    setError({});
 
     const response = await fetch('http://localhost:3333/auth/login', {
       method: 'POST',
