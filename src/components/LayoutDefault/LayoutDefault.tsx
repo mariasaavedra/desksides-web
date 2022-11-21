@@ -13,13 +13,13 @@ import Hero from '@/components/Hero/Hero';
 import { MaybeParentComponentProps } from '@/interfaces/ParentComponentProps';
 
 export interface LayoutDefaultProps extends MaybeParentComponentProps {
-  heroJSX?: string | JSX.Element,
-  hideHero?: boolean,
-  justify: 'center' | 'left' | 'right'
+  heroJSX?: string | JSX.Element;
+  hideHero?: boolean;
+  justify: 'center' | 'left' | 'right';
 }
 
 export default function LayoutDefault(props: LayoutDefaultProps) {
-  const { user } = useAuthContext()
+  const { user } = useAuthContext();
   return (
     <div className={styles.LayoutDefaultComponent}>
       {user ? <Header></Header> : <GuestHeader></GuestHeader>}
@@ -31,5 +31,5 @@ export default function LayoutDefault(props: LayoutDefaultProps) {
 }
 
 LayoutDefault.defaultProps = {
-  justify: 'center'
-}
+  justify: 'center',
+};

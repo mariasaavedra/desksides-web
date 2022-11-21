@@ -5,21 +5,22 @@ import styles from './Button.module.css';
 import { ParentComponentProps } from '@/interfaces/ParentComponentProps';
 
 export interface ButtonProps extends ParentComponentProps {
-  id?: string,
-  type: 'button' | 'submit',
+  id?: string;
+  type: 'button' | 'submit';
   color: 'green' | 'red' | 'yellow' | 'purple';
-  variant: 'outline' | 'solid',
-  size: 'sm' | 'md' | 'lg'
-  url?: string,
-  onClick?: () => void,
+  variant: 'outline' | 'solid';
+  size: 'sm' | 'md' | 'lg';
+  url?: string;
+  onClick?: () => void;
 }
 
 export default function Button(props: ButtonProps) {
-
   const getClasses = () => {
     const classes = [];
     if (props.variant === 'solid') {
-      classes.push(`text-white underline bg-brand-${props.color} bolder font-lg font-heading`);
+      classes.push(
+        `text-white underline bg-brand-${props.color} bolder font-lg font-heading`
+      );
     }
     if (props.variant == 'outline') {
       if (props.color === 'red') {
@@ -34,7 +35,9 @@ export default function Button(props: ButtonProps) {
       if (props.color === 'purple') {
         classes.push(`text-brand-purple border-brand-purple`);
       }
-      classes.push(`border border-1 text-xs rounded-[28px] tracking-wide uppercase`);
+      classes.push(
+        `border border-1 text-xs rounded-[28px] tracking-wide uppercase`
+      );
     }
     if (props.size === 'sm') {
       classes.push(`p-2 px-4`);
@@ -46,16 +49,16 @@ export default function Button(props: ButtonProps) {
       classes.push(`p-8 px-10`);
     }
     return classes.join(' ');
-  }
+  };
 
   return (
     <button
       id={props.id}
       type={props.type}
-      className={styles.ButtonComponent + ' ' + getClasses()
-      }>
+      className={styles.ButtonComponent + ' ' + getClasses()}
+    >
       {props.children}
-    </button >
+    </button>
   );
 }
 
@@ -64,4 +67,4 @@ Button.defaultProps = {
   type: 'button',
   size: 'md',
   color: 'red',
-}
+};

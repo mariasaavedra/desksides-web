@@ -4,7 +4,6 @@ import Heading from '@/components/Heading/Heading';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
 export default function MainDashboardPage() {
-
   const heroJSX = (
     <>
       <Heading>Brand Profile</Heading>

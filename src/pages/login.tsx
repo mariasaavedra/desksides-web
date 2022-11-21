@@ -21,21 +21,27 @@ export default function LoginPage() {
     formState: { errors },
   } = useForm();
 
-  const { login, error, isLoading } = useLogin()
+  const { login, error, isLoading } = useLogin();
 
-  const onSubmit = async ({ email, password }: { email: string, password: string }) => {
+  const onSubmit = async ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => {
     await login(email, password);
   };
 
   return (
     <>
       <LayoutDefault justify='left' heroJSX={heroJSX}>
-        <form className="pl-12" onSubmit={handleSubmit(onSubmit)}>
-          <div className='flex flex-col my-4'>
+        <form className='pl-12' onSubmit={handleSubmit(() => onSubmit)}>
+          <div className='my-4 flex flex-col'>
             <label>email</label>
             <input type='text' placeholder='email' {...register('email', {})} />
           </div>
-          <div className='flex flex-col my-4'>
+          <div className='my-4 flex flex-col'>
             <label>password</label>
             <input
               type='password'

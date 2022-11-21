@@ -8,8 +8,14 @@ import { useAuthContext } from '@/hooks/useAuthContext';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
 const getFormattedDate = (date: Date) => {
-  return new Date(date).getMonth() + '/' + new Date(date).getDay() + '/' + new Date(date).getFullYear()
-}
+  return (
+    new Date(date).getMonth() +
+    '/' +
+    new Date(date).getDay() +
+    '/' +
+    new Date(date).getFullYear()
+  );
+};
 
 export default function AdminIndex() {
   const { user } = useAuthContext();
@@ -43,14 +49,16 @@ export default function AdminIndex() {
       dataIndex: 'role',
       key: 'role',
       width: 100,
-      render: (value: string) => <span className='capitalize'>{value.toLowerCase()}</span>
+      render: (value: string) => (
+        <span className='capitalize'>{value.toLowerCase()}</span>
+      ),
     },
     {
       title: 'Date Joined',
       dataIndex: 'created_at',
       key: 'created_at',
       width: 150,
-      render: (value) => getFormattedDate(value)
+      render: (value: Date) => getFormattedDate(value),
     },
     {
       title: 'Market',
@@ -63,43 +71,64 @@ export default function AdminIndex() {
       dataIndex: 'is_approved',
       key: 'is_approved',
       width: 50,
-      render: (value) => {
-        return (<>{value ? <><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-        </svg>
-        </> : <>-</>} </>)
-      }
+      render: (value: Date | undefined) => {
+        return (
+          <>
+            {value ? (
+              <>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth={1.5}
+                  stroke='currentColor'
+                  className='h-6 w-6'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M4.5 12.75l6 6 9-13.5'
+                  />
+                </svg>
+              </>
+            ) : (
+              <>-</>
+            )}{' '}
+          </>
+        );
+      },
     },
     {
       title: 'Detail',
       dataIndex: '',
       key: 'operations',
-      render: (value: { id: any; }, row: any, index: any) => <Link href={`/admin/user/${value.id}`}>Detail</Link>,
+      render: (value: { id: any }, row: any, index: any) => (
+        <Link href={`/admin/user/${value.id}`}>Detail</Link>
+      ),
     },
   ];
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
-      console.log(user, "user")
+      console.log(user, 'user');
       if (!user) {
         return;
       }
       const response = await fetch('http://localhost:3333/users', {
         method: 'GET',
-        headers: { 'Authorization': `Bearer ${user.access_token}` },
+        headers: { Authorization: `Bearer ${user.access_token}` },
       });
       const users = await response.json();
       setData(users);
-      console.log("data", data);
-    }
+      console.log('data', data);
+    };
     fetchUsers();
-  }, [user])
-
+  }, [user]);
 
   return (
     <LayoutDefault hideHero={true}>
       <Table columns={columns} data={data} />
-    </LayoutDefault >
+    </LayoutDefault>
   );
 }

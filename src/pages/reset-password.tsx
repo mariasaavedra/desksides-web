@@ -20,28 +20,30 @@ export default function ResetPassword() {
   );
 
   const [checkEmail, setCheckEmail] = useState(false);
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data: any) => console.log(data);
 
   return (
     <>
       <LayoutDefault heroJSX={heroJSX}>
-        {checkEmail ?
-          <EmailConfirmation /> :
+        {checkEmail ? (
+          <EmailConfirmation />
+        ) : (
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='block'>
                 <label>Email</label>
-                <input
-                  type='text'
-                  placeholder='email'
-                  {...register('email')}
-                />
+                <input type='text' placeholder='email' {...register('email')} />
               </div>
               <Button type='submit'>Submit</Button>
             </form>
           </div>
-        }
+        )}
       </LayoutDefault>
     </>
   );

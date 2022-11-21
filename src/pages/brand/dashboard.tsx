@@ -6,7 +6,6 @@ import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 import NextImage from '@/components/NextImage';
 
 export default function DashboardPage() {
-
   const heroJSX = (
     <>
       <Heading>Brand Profile</Heading>
@@ -20,7 +19,6 @@ export default function DashboardPage() {
   return (
     <>
       <LayoutDefault heroJSX={heroJSX}>
-
         <div>
           <Link href='/'>
             <NextImage
@@ -30,7 +28,8 @@ export default function DashboardPage() {
               width='180'
               height='180'
               alt='Icon'
-            /></Link>
+            />
+          </Link>
         </div>
         <div>
           <Link href='/contact'>
@@ -41,7 +40,8 @@ export default function DashboardPage() {
               width='180'
               height='180'
               alt='Icon'
-            /></Link>
+            />
+          </Link>
         </div>
         <div>
           <Link href='/'>
@@ -52,7 +52,8 @@ export default function DashboardPage() {
               width='180'
               height='180'
               alt='Icon'
-            /></Link>
+            />
+          </Link>
         </div>
         <div>
           <Link href='/matches'>
@@ -63,7 +64,8 @@ export default function DashboardPage() {
               width='180'
               height='180'
               alt='Icon'
-            /></Link>
+            />
+          </Link>
         </div>
         <div>
           <Link href='/'>
@@ -74,7 +76,8 @@ export default function DashboardPage() {
               width='180'
               height='180'
               alt='Icon'
-            /></Link>
+            />
+          </Link>
         </div>
       </LayoutDefault>
     </>

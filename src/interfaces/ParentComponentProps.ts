@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 
 import { ComponentProps } from './ComponentProps';
 
-
 export interface ParentComponentProps extends ComponentProps {
   children: ReactNode;
 }

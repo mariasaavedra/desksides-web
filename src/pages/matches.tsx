@@ -11,7 +11,7 @@ export default function MatchesPage() {
   const heroJSX = (
     <>
       <Heading>{user?.first_name + ' ' + user?.last_name}</Heading>
-      <p className='text-white leading-relaxed'>Your connections</p>
+      <p className='leading-relaxed text-white'>Your connections</p>
     </>
   );
 

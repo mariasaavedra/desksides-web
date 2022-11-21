@@ -11,4 +11,5 @@ export interface IUser {
   is_verified?: string;
   is_approved?: string;
   role: string;
+  Profile?: any;
 }

@@ -4,9 +4,7 @@ import AssesmentForm from '@/components/AssesmentForm/AssesmentForm';
 import Heading from '@/components/Heading/Heading';
 import LayoutDefault from '@/components/LayoutDefault/LayoutDefault';
 
-
 export default function BrandProfile() {
-
   type BrandProfileForm = {
     affliate_url: string;
     preferred_datetime: string;
@@ -28,9 +26,7 @@ export default function BrandProfile() {
     </>
   );
 
-
   const onSubmit = (data: any) => console.log(data);
-
 
   return (
     <>

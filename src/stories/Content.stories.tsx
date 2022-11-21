@@ -17,4 +17,3 @@ export default {
   //     backgroundColor: { control: 'color' },
   // },
 } as ComponentMeta<typeof Content>;
-

@@ -9,7 +9,7 @@ export const useLogin = () => {
   const { dispatch } = useAuthContext();
   const router = useRouter();
 
-  const login = async (email, password) => {
+  const login = async (email: string, password: string) => {
     setIsLoading(true);
     setError({});
 

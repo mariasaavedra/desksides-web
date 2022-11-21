@@ -47,10 +47,12 @@ export default function PaymentGateway() {
   return (
     <>
       <LayoutDefault heroJSX={heroJSX}>
-        <div className='flex justify-between w-[800px] mx-auto'>
+        <div className='mx-auto flex w-[800px] justify-between'>
           <div className='w-max px-4'>
-            <p className='text-xl font-heading'>Packages</p>
-            <div className="bg-white p-4 rounded-xl border w-[100%]">$2400/ Annually</div>
+            <p className='font-heading text-xl'>Packages</p>
+            <div className='w-[100%] rounded-xl border bg-white p-4'>
+              $2400/ Annually
+            </div>
           </div>
           <div>
             <Elements stripe={stripePromise} options={options}>
@@ -61,9 +63,7 @@ export default function PaymentGateway() {
               )}
             </Elements>
           </div>
-
         </div>
-
       </LayoutDefault>
     </>
   );
